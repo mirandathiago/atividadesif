@@ -1,34 +1,24 @@
 <?php
 declare(strict_types= 1);
 
-use Atividades\Controllers\ErroController;
-use Atividades\Controllers\HomeController;
-use Atividades\Controllers\LoginController;
+use Atividades\Core\Router;
 
 require __DIR__ . "/vendor/autoload.php";
 
 const PASTA_VIEW = "./app/Views/";
+const NS_CONTROLLERS = "\\Atividades\\Controllers\\";
+
+
+$url = $_GET['url'] ?? "";
+
+Router::add('/','HomeController','index');
+Router::add('/login','LoginController','login');
+Router::add('/cadastro','LoginController','criarconta');
+Router::add('__erro','ErroController','erro404');
+
+Router::exec($url);
 
 
 
-$url = $_GET['url'] ?? "/";
 
 
-switch($url){
-    case "/":
-       $controller = new HomeController();
-       $controller->index();
-    break;
-    case "login":
-       $controller = new LoginController();
-       $controller->login(); 
-    break;
-    case "cadastro":
-        $controller = new LoginController();
-        $controller->criarconta();        
-    break;
-    default:
-        $controller = new ErroController();
-        $controller->erro404();
-        
-}
