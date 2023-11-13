@@ -1,13 +1,30 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Atividades IFBA</h1>
-    <h2><?=$pagina?></h2>
+<?php componente('topo')?>
+  <main class="principal">
     
-</body>
-</html>
+  <div class="nav-alternativa">
+        <a class="btn-voltar" href="<?=linkrota()?>">
+          <i class="fa-solid fa-chevron-left"></i>
+            Voltar
+        </a>     
+      </div>        
+     
+     
+    <div class="form-container">
+        <form id="login-form" action="admin.html">
+          <h2><i class="fa-solid fa-key"></i> Login</h2>
+          <input type="text" placeholder="usuario" name="login" required>
+          <input type="password" placeholder="Senha" name="senha" required>
+          <button class="btn">
+            <i class="fa-solid fa-unlock"></i>
+            Login
+          </button>
+          <a href="<?=linkrota('cadastro')?>" class="btn verde-claro">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            Criar Conta
+          </a>
+        </form>
+     </div>
+
+
+  </main>
+<?php componente('rodape')?>
