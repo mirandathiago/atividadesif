@@ -99,6 +99,17 @@ abstract class DAO
         return $db->get(static::$classe);
     }
 
+    public static function getBy(string $where,...$valores)
+    {
+        $db = new Database;
+        $tabela = static::$tabela;
+        $sql = "SELECT * FROM {$tabela} WHERE $where LIMIT 1";
+        
+        $db->execute($sql,$valores);
+
+        return $db->get(static::$classe);
+    }
+
     public static function excluir(Entity $entidade)
     {
         $db = new Database;

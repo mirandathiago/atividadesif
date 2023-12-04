@@ -2,6 +2,8 @@
 
 use Atividades\Core\Router;
 
-Router::add('/','HomeController','index');
-Router::add('/login','LoginController','login');
-Router::add('/cadastro','LoginController','criarconta');
+Router::get('/','HomeController','index');
+Router::get('/login','LoginController','login');
+Router::get('/criarconta','LoginController','criarconta');
+Router::post('/cadastrarconta','LoginController','cadastrarconta');
+Router::post('/autentica','LoginController','autentica');

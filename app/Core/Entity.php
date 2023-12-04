@@ -5,6 +5,7 @@ namespace Atividades\Core;
 
 abstract class Entity{
 
+
     public function __construct(array $dados = [])
     {
         if(empty($dados))
@@ -32,6 +33,7 @@ abstract class Entity{
         }
         
     }
+
    
     public function __set($nomeProp,$valor)
     {

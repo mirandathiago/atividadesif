@@ -8,19 +8,38 @@ class Router{
 
     protected static array $rotas = []; 
 
-    public static function add(string $rota, string $controller, string $acao)
+
+    public static function get(string $rota, string $controller, string $acao)
     {
-       static::$rotas[$rota] = [$controller,$acao];
+        static::add($rota,$controller,$acao,'GET');
     }
 
-    public static function exec(string $url)
+    public static function post(string $rota, string $controller, string $acao)
+    {
+        static::add($rota,$controller,$acao,'POST');
+    }
+
+
+    protected static function add(string $rota, string $controller, string $acao, string $metodo)
+    {
+       static::$rotas[$rota] = [$controller,$acao,$metodo];
+    }
+
+
+
+    public static function exec(string $url, string $metodoHTTP)
     {
         $url = "/".$url;
         $rotas = static::$rotas;
 
         if( array_key_exists($url,$rotas) ){
-            [$controller,$metodo] = $rotas[$url];
-            static::carregarController($controller,$metodo);
+            [$controller,$acao,$metodo] = $rotas[$url];
+            if($metodo == $metodoHTTP){
+                static::carregarController($controller,$acao);
+            }else{
+                static::erro('naopermitido',405); 
+            }
+           
             
         }else{
             static::erro('404',404);           

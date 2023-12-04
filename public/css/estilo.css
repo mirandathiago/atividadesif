@@ -31,6 +31,40 @@ header h1{
     background-size: cover;
     text-indent: -90000px;
 }
+
+.mensagem{
+    max-width: 800px;
+    width:90%;
+    padding:.6rem;
+    text-align: center;
+    margin:1rem auto;
+}
+
+.sucesso{
+    background-color:#029633;
+    color:#FFF;
+}
+
+.erro{
+    background-color:#960902;
+    color:#FFF;
+}
+
+.erro li{
+    font-size:.8rem;
+    text-align: justify;
+}
+
+.input_erro{
+    max-width: 800px;
+    width:90%;
+    padding:.6rem;
+    text-align: center;
+    margin:1rem auto;
+    background-color:#ccc;
+    color:#960902;
+}
+
 .principal{
     min-height: calc(100vh - 150px);
     display:grid;
